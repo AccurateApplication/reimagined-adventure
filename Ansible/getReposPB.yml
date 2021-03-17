@@ -1,0 +1,20 @@
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Run yum repolist
+      shell: yum repolist
+      register: YumRepo
+    - debug: var=YumRepo
+
+    - name: LS on repo directory
+      find:
+        paths: "/etc/yum.repos.d"
+        patterns: "*.repo"
+      register: RepoFiles
+
+    - name: ECHO DEBUG
+      debug: var=RepoFiles
+    # Ad hoc:
+    # ansible -i hosts vm1 "yum repolist" -u $USER -K .. 
+

@@ -1,0 +1,14 @@
+- hosts: all
+  become: yes
+
+  tasks:
+    - name:
+      yum:
+          name: chrony
+          state: present
+
+    - name: Ensure chrony run
+      service:
+          name: chronyd
+          state: started
+          enabled: yes
