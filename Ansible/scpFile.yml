@@ -1,0 +1,13 @@
+- hosts: all
+  become: yes #become needed to write root file and /root ?
+
+  tasks:
+    - name: Scp over local file
+      ansible.builtin.copy: 
+        src: ./textfile
+        dest: /root/textfile1
+        owner: root
+        group: wheel
+        mode: 0777 #safety first
+
+

@@ -1,0 +1,9 @@
+- hosts: all
+  #become: yes|no #sudo
+
+  tasks:
+    - name: name of task
+      ansible.builtin.: 
+        vars
+
+

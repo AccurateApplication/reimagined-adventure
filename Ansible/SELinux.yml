@@ -1,0 +1,8 @@
+- hosts: all
+  become: yes 
+
+  tasks:
+  - name: Enable selinux
+    selinux:
+      policy: targeted
+      state: enforcing
